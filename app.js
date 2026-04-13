@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var port = 3000;
+var cors = require("cors");
 
 require("./app_api/models/db");
 
@@ -24,11 +25,17 @@ app.set("view engine", "hbs");
 
 //Enable CORS
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // Allow requests from this origin
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header(
-    "Access-Control-Allow-Methods",
-    "Origin, X-Requested-With, Content-Type, Accept ",
-  ); // Allow these HTTP methods
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+  );
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+
   next();
 });
 

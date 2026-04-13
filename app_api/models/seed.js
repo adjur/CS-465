@@ -1,3 +1,4 @@
+// Bring in the DB connection and the Trip schema
 const mongoose = require("./db"); // Adjust path if necessary
 const Trip = require("./travlr"); // Import the Trip schema
 

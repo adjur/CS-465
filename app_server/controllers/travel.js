@@ -5,11 +5,7 @@ const options = {
     Accept: "application/json",
   },
 };
-//var fs = require('fs');
-//var trips =
-//JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
 
-/* GET travel view */
 const travel = async function (req, res, next) {
   await fetch(tripsEndpoint, options)
     .then((res) => res.json())

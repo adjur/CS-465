@@ -7,6 +7,7 @@ var port = 3000;
 var cors = require("cors");
 
 require("./app_api/models/db");
+require("dotenv").config();
 
 var indexRouter = require("./app_server/routes/index");
 var usersRouter = require("./app_server/routes/users");

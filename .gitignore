@@ -5,3 +5,5 @@ npm-debug.log
 X
 ^X
 
+# dotenv enviornemt variables file
+.env

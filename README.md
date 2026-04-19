@@ -1,8 +1,6 @@
 # CS 465 Full Stack Development Journal Reflection
 
 ## GitHub Repository
-[Insert GitHub Repository Link Here]
-
 ---
 
 ## Architecture

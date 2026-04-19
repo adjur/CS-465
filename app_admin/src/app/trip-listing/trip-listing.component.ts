@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
-
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,18 +11,16 @@ import { Router } from '@angular/router';
   imports: [CommonModule, TripCardComponent],
   templateUrl: './trip-listing.component.html',
   styleUrls: ['./trip-listing.component.css'],
-  providers: [TripDataService],
 })
 export class TripListingComponent implements OnInit {
-  trips!: Trip[];
-  message: string = '';
+  trips: Trip[] = [];
+  message = '';
 
   constructor(
     private tripDataService: TripDataService,
     private router: Router,
-  ) {
-    console.log('trip-listing constructor');
-  }
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   public addTrip(): void {
     this.router.navigate(['add-trip']);
@@ -33,13 +29,14 @@ export class TripListingComponent implements OnInit {
   private getStuff(): void {
     this.tripDataService.getTrips().subscribe({
       next: (value: any) => {
-        this.trips = value;
-        if (value.length > 0) {
-          this.message = 'There are ' + value.length + ' trips available.';
-        } else {
-          this.message = 'There were no trips retrieved from the database';
-        }
-        console.log(this.message);
+        console.log('Trips from service:', value);
+        this.trips = Array.isArray(value) ? value : [];
+        this.message =
+          this.trips.length > 0
+            ? `There are ${this.trips.length} trips available.`
+            : 'There were no trips retrieved from the database';
+
+        this.cdr.detectChanges();
       },
       error: (error: any) => {
         console.log('Error: ' + error);
@@ -48,14 +45,6 @@ export class TripListingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tripDataService.getTrips().subscribe({
-      next: (value: any) => {
-        console.log('Trips from service:', value);
-        this.trips = value;
-      },
-      error: (err) => {
-        console.error('Error loading trips:', err);
-      },
-    });
+    this.getStuff();
   }
 }

@@ -16,7 +16,6 @@ const userSchema = new mongoose.Schema({
   salt: String,
 });
 
-// Method to set password
 userSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString("hex");
   this.hash = crypto

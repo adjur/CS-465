@@ -5,16 +5,12 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { TripDataService } from '../services/trip-data.service';
 import { Trip } from '../models/trip';
 
-// Import DatePipe
-import { DatePipe } from '@angular/common';
-
 @Component({
   selector: 'app-edit-trip',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  providers: [DatePipe],
   templateUrl: './edit-trip.component.html',
-  styleUrl: './edit-trip.component.css',
+  styleUrls: ['./edit-trip.component.css'],
 })
 export class EditTripComponent implements OnInit {
   public editForm!: FormGroup;
@@ -83,6 +79,7 @@ export class EditTripComponent implements OnInit {
     }
   }
 
+  // get the form short name to access the form fields
   get f() {
     return this.editForm.controls;
   }

@@ -1,4 +1,4 @@
-# CS 465 Full Stack Development Journal Reflection
+# CS 465 Full Stack Development
 ## Architecture
 
 In this project, I used multiple types of frontend development. The customer-facing side used Express with HTML, CSS, JavaScript, and Handlebars templates to render pages from the server. This is a traditional multi-page web application where each page request loads new content from the server.

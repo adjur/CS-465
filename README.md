@@ -1,26 +1,26 @@
 # CS 465 Full Stack Development
 ## Architecture
 
-In this project, I used multiple types of frontend development. The customer-facing side used Express with HTML, CSS, JavaScript, and Handlebars templates to render pages from the server. This is a traditional multi-page web application where each page request loads new content from the server.
+For the frontend, there were several different frontend development frameworks. The frontend facing the customer utilized Express together with HTML, CSS, JavaScript, and Handlebars template engine to display dynamic pages received from the server. In this case, we have a conventional multi-page application since every page request retrieves new data from the server.
 
-The administrator side used Angular as a Single Page Application (SPA). Angular allowed the site to update content dynamically without full page reloads. Components, routing, and services made the administrator interface faster and more interactive.
+The administrator side leveraged the use of Angular to build an SPA. Angular facilitated dynamic updates of content without reloading the whole page. Utilization of components, routing, and services helped in increasing the speed of operations on the administrative part of the website.
 
-The backend used MongoDB because it is a NoSQL database that stores data in flexible JSON-like documents. This worked well for trip data because travel packages can have different fields and can grow over time without requiring strict relational tables.
+The backend was based on MongoDB due to its nature as a NoSQL database storing information in JSON-like format documents. MongoDB was suitable for storing trip data since trips could be extended and had different sets of data.
 
 ## Functionality
 
-JSON is a text-based format used to store and transfer data, while JavaScript is a programming language used to create application logic. JSON helped connect the frontend and backend because the Express API returned trip data as JSON, and Angular used that data to display information on the page.
+JSON is a text format designed to transmit data, whereas JavaScript is a programming language which enables the creation of the application logic. JSON was helpful in linking the front and back ends since the Express API provided trip data in JSON form and Angular made use of it to provide information in the browser.
 
-During development, I refactored code by moving repeated logic into Angular services and reusable components. For example, trip data requests were handled in a service instead of repeated inside components. Trip cards were also separated into reusable UI components. This improved organization, reduced duplicate code, and made updates easier.
+While developing the web application, I optimized my code by refactoring some pieces of code to put them in Angular services and components. For instance, fetching data about trips was performed in a service rather than having it implemented in multiple components. Trip cards were converted into reusable components as well.
 
 ## Testing
 
-Testing involved verifying API endpoints and request methods such as GET, POST, and PUT. GET was used to retrieve trip data, POST was used for login and adding records, and PUT was used for editing trips.
+This included testing API end points and different types of requests like GET, POST, and PUT. GET requests were used for fetching trip details, POST requests were used for login and for creating new records, and PUT requests were used for updating trips.
 
-I used Postman and browser testing to confirm that endpoints responded correctly. Security testing added another layer because protected admin routes required a valid JSON Web Token (JWT). This showed the importance of authentication and making sure only authorized users could update trip data.
+Postman and browser testing helped in ensuring that there are no errors with the end points. Security testing was an additional dimension due to the protection of admin end points which needed JSON Web Tokens (JWT).
 
 ## Reflection
 
-This course helped me move closer to my professional goals by giving me hands-on experience building a real full stack application. I gained practical experience with Angular, Express, Node.js, MongoDB, routing, API development, authentication, and debugging.
+The lessons learnt from this course helped me come a step closer towards achieving my career objectives through experience of developing an application with full stack technology. I acquired knowledge on using Angular, Express, Node.js, MongoDB, routing, APIs, authentication, and debugging in practical terms.
 
-I also improved my problem-solving skills by troubleshooting routing issues, API communication, and front-end rendering problems. These skills make me a stronger and more marketable candidate for software development and web development roles because I now understand how multiple technologies work together in a full stack environment.
+In addition, I enhanced my abilities of solving problems related to routing problems, communication within APIs, and front-end rendering. All these factors make me better placed to fit into a software developer or web developer position.
